@@ -100,7 +100,11 @@ class GoogleData < SocialData
   end
 
   def shares
-    response 
+    if response.options[:response_code] == 400
+      SocialData::RequestFailure
+    else
+      response
+    end
   end
 
   protected
@@ -113,3 +117,7 @@ class GoogleData < SocialData
   end
 
 end
+
+
+# options= {:httpauth_avail=>0, :total_time=>0.085682, :starttransfer_time=>0.075863, :appconnect_time=>4.4e-05, :pretransfer_time=>0.000137, :connect_time=>4.4e-05, :namelookup_time=>4.3e-05, :effective_url=>"https://plusone.google.com/_/+1/fastbutton?url=not_a_url&count=true", :primary_ip=>"173.194.115.7", :response_code=>400, :redirect_count=>0}
+# puts options[:response_code]
