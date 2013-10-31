@@ -100,11 +100,9 @@ class GoogleData < SocialData
   end
 
   def shares
-    if response.options[:response_code] == 400
-      SocialData::RequestFailure
-    else
-      response
-    end
+    response
+    # shares should only be responsible for returning an integer
+    # but currently resonse obj since g+ not returning json
   end
 
   protected
