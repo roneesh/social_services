@@ -16,7 +16,7 @@ describe GoogleData, "#shares" do
   end
 
   it "returns a SocialData::RequestFailure error when not given a valid url" do
-    # expect(bad_data.shares).to raise_error(SocialData::RequestFailure)
+    expect { bad_data.shares }.to raise_error(SocialData::RequestFailure)
   end
 
 end
